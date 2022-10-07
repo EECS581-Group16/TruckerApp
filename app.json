@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "TruckerApp",
+    "slug": "TruckerApp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "TruckerApp"
+}
