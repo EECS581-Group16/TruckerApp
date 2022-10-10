@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, Dimensions, Pressable, Alert } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, Dimensions, Pressable, Button } from 'react-native';
 const windowWidth = Dimensions.get('window').width;
 
 
@@ -8,33 +8,41 @@ const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleKeyDown = (e) => {
+    if(e.nativeEvent.key == "Enter"){
+      validateSignIn();
+    }
+  }
+
   //Temporary -- will eventually validate with usernames and passwords from database server.
   const validateSignIn = () => {
     if (username != "admin") {
+      console.log("Invalid Username");
       setUsername("");
       setPassword("");
-      return console.log("Invalid Username");
     }
     else if (password != "password") {
+      console.log("Invalid Password");
       setPassword("");
-      return console.log("Invalid Password");
     }
     else {
       //go to home page
+      console.log("Success!");
       setUsername("");
       setPassword("");
-      return console.log("Success!");
     }
   }
+
+  
 
     return(
       <View style={styles.containerOuter}>
         <Text style={styles.head}>Sign In</Text>
         <View style={styles.containerInner}>
           <Text style={styles.head2}>Username</Text>
-            <TextInput value={username} onChangeText={(userInput) => setUsername(userInput)} style={styles.userInput} placeholder=""></TextInput>
+            <TextInput value={username} onChangeText={(userInput) => setUsername(userInput)} style={styles.userInput} placeholder="" onKeyPress={handleKeyDown}></TextInput>
           <Text style={styles.head2}>Password</Text>
-            <TextInput value={password} onChangeText={(userInput) => setPassword(userInput)} secureTextEntry={true} style={styles.userInput} placeholder=""></TextInput>
+            <TextInput value={password} onChangeText={(userInput) => setPassword(userInput)} secureTextEntry={true} style={styles.userInput} placeholder="" onKeyPress={handleKeyDown}></TextInput>
           <Pressable style={styles.forgotPassword}>
             <Text>Forgot password</Text>
           </Pressable>
