@@ -1,13 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import SignIn from './SignIn.js';
+import {NavigationContainer} from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
+
+const MyStack = () => {
+  return(
+      <Stack.Navigator>
+        <Stack.Screen name="SignIn" component={SignIn} />
+      </Stack.Navigator>
+  );
+};
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <SignIn></SignIn> 
-    </View>
+    <NavigationContainer>
+      <MyStack />
+    </NavigationContainer>
   );
 }
 
