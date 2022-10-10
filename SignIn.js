@@ -17,12 +17,12 @@ const SignIn = () => {
   //Temporary -- will eventually validate with usernames and passwords from database server.
   const validateSignIn = () => {
     if (username != "admin") {
-      console.log("Invalid Username");
+      console.log("Invalid Username"); //For android and ios Alert.alert("message") will work...still need solution for web, normal web alerts do not work.
       setUsername("");
       setPassword("");
     }
     else if (password != "password") {
-      console.log("Invalid Password");
+      console.log("Invalid Password"); //For android and ios Alert.alert("message") will work...still need solution for web, normal web alerts do not work.
       setPassword("");
     }
     else {
