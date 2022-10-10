@@ -8,7 +8,6 @@ const HomeScreen = ({ navigation }) => {
             <Text>This is the HomeScreen</Text>
         </View>
     );
-
 }
 
 const styles = StyleSheet.create({

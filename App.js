@@ -14,7 +14,7 @@ const MyStack = () => {
         <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown: false}}/>
       </Stack.Navigator>
   );
-};
+}
 
 const App = () => {
   return (
