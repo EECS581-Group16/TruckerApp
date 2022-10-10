@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import SignIn from './SignIn.js';
+import HomeScreen from './HomeScreen.js';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -10,6 +11,7 @@ const MyStack = () => {
   return(
       <Stack.Navigator>
         <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
       </Stack.Navigator>
   );
 };
