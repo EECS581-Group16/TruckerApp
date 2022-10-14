@@ -5,6 +5,8 @@ const SignIn = ({ navigation }) => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [usernameError, setUsernameError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   const handleKeyDown = (e) => {
     if(e.nativeEvent.key == "Enter"){
@@ -16,11 +18,19 @@ const SignIn = ({ navigation }) => {
   const validateSignIn = () => {
     if (username != "admin") {
       console.log("Invalid Username"); //For android and ios Alert.alert("message") will work...still need solution for web, normal web alerts do not work.
+      setUsernameError("Invalid Username");
+      if (passwordError.length > 0) {
+        setPasswordError("");
+      }
       setUsername("");
       setPassword("");
     }
     else if (password != "password") {
       console.log("Invalid Password"); //For android and ios Alert.alert("message") will work...still need solution for web, normal web alerts do not work.
+      if (usernameError.length > 0) {
+        setUsernameError("");
+      }
+      setPasswordError("Invalid Password");
       setPassword("");
     }
     else {
@@ -39,8 +49,10 @@ const SignIn = ({ navigation }) => {
         <View style={styles.containerInner}>
           <Text style={styles.head2}>Username</Text>
             <TextInput value={username} onChangeText={(userInput) => setUsername(userInput)} style={styles.userInput} placeholder="" onKeyPress={handleKeyDown}></TextInput>
+            {usernameError.length > 0 && <Text style={styles.loginError}>{usernameError}</Text>}
           <Text style={styles.head2}>Password</Text>
             <TextInput value={password} onChangeText={(userInput) => setPassword(userInput)} secureTextEntry={true} style={styles.userInput} placeholder="" onKeyPress={handleKeyDown}></TextInput>
+            {passwordError.length > 0 && <Text style={styles.loginError}>{passwordError}</Text>}
           <Pressable style={styles.forgotPassword}>
             <Text>Forgot password</Text>
           </Pressable>
@@ -121,6 +133,11 @@ const styles = StyleSheet.create({
   login: {
     color: '#fff',
     fontSize: '18px',
+    fontWeight: 'bold',
+  },
+
+  loginError: {
+    color: 'red',
     fontWeight: 'bold',
   },
 });
