@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Dimensions, Pressable, Button } from 'react-native';
 
-const SignIn = ({ navigation }) => {
+export default function SignIn({ navigation }){
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -42,6 +42,7 @@ const SignIn = ({ navigation }) => {
 
     }
   }
+
   return(
     <View style={styles.container}>
       <View style={styles.containerOuter}>
@@ -73,6 +74,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
   containerOuter: {
       flex: 1,
       backgroundColor: '#fff',
@@ -121,7 +123,8 @@ const styles = StyleSheet.create({
     justifyContent: 'left',
     width: '500px',
     marginLeft: '2%'
-  }, 
+  },
+
   loginContainer: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -130,6 +133,7 @@ const styles = StyleSheet.create({
     height: '50px',
     borderRadius: '10px',
   },
+
   login: {
     color: '#fff',
     fontSize: '18px',
@@ -141,6 +145,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-
-export default SignIn;

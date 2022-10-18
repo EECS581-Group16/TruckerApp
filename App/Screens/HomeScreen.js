@@ -1,15 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Dimensions, Pressable, Button } from 'react-native';
 
-const HomeScreen = ({ navigation }) => {
-
-    return (
-        <View style={styles.container}>
-            <Text>This is the HomeScreen</Text>
-        </View>
-    );
-}
-
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -19,4 +10,11 @@ const styles = StyleSheet.create({
     },
   });
 
-export default HomeScreen;
+export default function HomeScreen({ navigation }){
+
+    return (
+        <View style={styles.container}>
+            <Text>This is the HomeScreen</Text>
+        </View>
+    );
+}
