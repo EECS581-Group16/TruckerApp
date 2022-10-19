@@ -27,9 +27,8 @@ export const styles = StyleSheet.create({
   containerStack: {// Conatiner Stack
       flex: 1,
       backgroundColor: colors.white,
-      alignItems: 'left',
-      justifyContent: 'left',
-      margin: '10%',
+      alignItems: 'center',
+      justifyContent: 'center',
       width: 'windowWidth',
       height: 'windowHeight',
   },
@@ -63,12 +62,11 @@ export const styles = StyleSheet.create({
   },
 
   primaryHeader: {// Primary Header
+    backgroundColor: colors.white,
     fontSize: '24px',
-    alignItems: 'left',
-    justifyContent: 'left',
-    width: '95%',
     color: colors.primary,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    width: "95%",
   },
 
   loginText: {// Login Text
