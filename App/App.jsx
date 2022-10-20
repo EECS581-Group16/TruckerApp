@@ -16,7 +16,7 @@ const StackNavigator = () => {
       <Stack.Navigator>
         <Stack.Screen name="SignIn" component={SignIn} options={{headerShown: false}} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown: false}}/>
-        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{headerTitle: ''}}/>
       </Stack.Navigator>
   );
 }
