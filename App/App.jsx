@@ -1,6 +1,7 @@
 import React from 'react';
 import SignIn from './Screens/SignInScreen.jsx';
 import HomeScreen from './Screens/HomeScreen.jsx';
+import ForgotPassword from './Screens/ForgotPassword.jsx';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -15,6 +16,7 @@ const StackNavigator = () => {
       <Stack.Navigator>
         <Stack.Screen name="SignIn" component={SignIn} options={{headerShown: false}} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown: false}}/>
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
       </Stack.Navigator>
   );
 }
