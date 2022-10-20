@@ -53,6 +53,10 @@ export default function SignIn({ navigation }){
     }
   }
 
+  const forgotPassword = () => {
+    navigation.navigate("ForgotPassword");
+  }
+
   /*-------------------------------------------------------------------------
     Sign In Screen
   -------------------------------------------------------------------------*/
@@ -66,7 +70,7 @@ export default function SignIn({ navigation }){
         <Text style={styles.primaryHeader}>Password</Text>
           <TextInput value={password} onChangeText={(textInputBox) => setPassword(textInputBox)} secureTextEntry={true} style={styles.textInputBox} placeholder="" onKeyPress={handleKeyDown}></TextInput>
           {passwordError.length > 0 && <Text style={styles.errorText}>{passwordError}</Text>}
-        <Pressable style={styles.forgotPassword}>
+        <Pressable style={styles.forgotPassword} onPress={() => forgotPassword()}>
           <Text>Forgot password</Text>
         </Pressable>
         <TouchableOpacity style={styles.button} onPress={() => validateSignIn()}>
