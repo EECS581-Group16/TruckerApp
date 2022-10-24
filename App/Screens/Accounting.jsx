@@ -12,7 +12,7 @@ export default function Accounting({ navigation }){
   -------------------------------------------------------------------------*/
   return (
       <View style={styles.pageContainer}>
-        
+        TODO
       </View>
   );
 

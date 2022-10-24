@@ -12,7 +12,7 @@ export default function LoadInvoicing({ navigation }){
   -------------------------------------------------------------------------*/
   return (
       <View style={styles.pageContainer}>
-        
+        TODO
       </View>
   );
 

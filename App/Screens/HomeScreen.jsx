@@ -17,7 +17,7 @@ export default function HomeScreen({ navigation }){
           <Text>User Profile</Text>
         </Pressable>
           <Text style={styles.pageTitle}>User's Company</Text>
-          <TouchableOpacity style={[styles.button, { margin: '5px', flex: 1 }]} onPress = { () => navigation.navigate("LoadInvoices") }>
+          <TouchableOpacity style={[styles.button, { margin: '5px', flex: 1 }]} onPress = { () => navigation.navigate("LoadInvoicing") }>
             <text style={styles.loginText}>Load Invoices</text>
           </TouchableOpacity>
           <TouchableOpacity style={[styles.button, { margin: '5px', flex: 1 }]} onPress = { () => navigation.navigate("Accounting") }>
