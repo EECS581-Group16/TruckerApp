@@ -8,7 +8,7 @@ import { styles, colors } from '../Styles/GlobalStyles.jsx';
 export default function SignIn({ navigation }){
 
   /*-------------------------------------------------------------------------
-    Constants
+    React States
   -------------------------------------------------------------------------*/
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -27,7 +27,7 @@ export default function SignIn({ navigation }){
   //Temporary -- will eventually validate with usernames and passwords from database server.
   const validateSignIn = () => {
     if (username != "admin") {
-      console.log("Invalid Username"); //For android and ios Alert.alert("message") will work...still need solution for web, normal web alerts do not work.
+      console.log("Invalid Username"); 
       setUsernameError("Invalid Username");
       if (passwordError.length > 0) {
         setPasswordError("");
@@ -36,7 +36,7 @@ export default function SignIn({ navigation }){
       setPassword("");
     }
     else if (password != "password") {
-      console.log("Invalid Password"); //For android and ios Alert.alert("message") will work...still need solution for web, normal web alerts do not work.
+      console.log("Invalid Password"); 
       if (usernameError.length > 0) {
         setUsernameError("");
       }
@@ -53,6 +53,10 @@ export default function SignIn({ navigation }){
     }
   }
 
+  const forgotPassword = () => {
+    navigation.navigate("ForgotPassword");
+  }
+
   /*-------------------------------------------------------------------------
     Sign In Screen
   -------------------------------------------------------------------------*/
@@ -66,7 +70,7 @@ export default function SignIn({ navigation }){
         <Text style={styles.primaryHeader}>Password</Text>
           <TextInput value={password} onChangeText={(textInputBox) => setPassword(textInputBox)} secureTextEntry={true} style={styles.textInputBox} placeholder="" onKeyPress={handleKeyDown}></TextInput>
           {passwordError.length > 0 && <Text style={styles.errorText}>{passwordError}</Text>}
-        <Pressable style={styles.forgotPassword}>
+        <Pressable style={styles.forgotPassword} onPress={() => forgotPassword()}>
           <Text>Forgot password</Text>
         </Pressable>
         <TouchableOpacity style={styles.button} onPress={() => validateSignIn()}>
