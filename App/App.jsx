@@ -10,7 +10,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
   component after the root
 -------------------------------------------------------------------------*/
 const Stack = createNativeStackNavigator();
-const StackNavigator = () => {
+const StackNavigator = () => {// First component listed in Stack.Navigator is what's displayed when launching the site/app
   return(
       <Stack.Navigator>
         <Stack.Screen name="SignIn" component={SignIn} options={{headerShown: false}} />
