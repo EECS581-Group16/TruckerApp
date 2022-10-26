@@ -18,10 +18,10 @@ const StackNavigator = () => {// First component listed in Stack.Navigator is wh
   return(
       <Stack.Navigator>
         <Stack.Screen name="SignInScreen" component={SignInScreen} options={{headerShown: false}} />
-        <Stack.Screen name="AccountingScreen" component={AccountingScreen} options={{headerTitle: ''}}/>
         <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown: false}}/>
         <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} options={{headerTitle: ''}}/>
         <Stack.Screen name="LoadInvoicingScreen" component={LoadInvoicingScreen} options={{headerTitle: ''}}/>
+        <Stack.Screen name="AccountingScreen" component={AccountingScreen} options={{headerTitle: ''}}/>
         <Stack.Screen name="UserProfileScreen" component={UserProfileScreen} options={{headerTitle: ''}}/>
       </Stack.Navigator>
   );
