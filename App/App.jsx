@@ -1,9 +1,10 @@
 import React from 'react';
-import SignIn from './Screens/SignInScreen.jsx';
+import SignInScreen from './Screens/SignInScreen.jsx';
 import HomeScreen from './Screens/HomeScreen.jsx';
-import ForgotPassword from './Screens/ForgotPassword.jsx';
-import LoadInvoicing from './Screens/LoadInvoicing.jsx';
-import Accounting from './Screens/Accounting.jsx';
+import ForgotPasswordScreen from './Screens/ForgotPasswordScreen.jsx';
+import LoadInvoicingScreen from './Screens/LoadInvoicingScreen.jsx';
+import AccountingScreen from './Screens/AccountingScreen.jsx';
+import UserProfileScreen from './Screens/UserProfileScreen.jsx';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -16,11 +17,12 @@ const Stack = createNativeStackNavigator();
 const StackNavigator = () => {// First component listed in Stack.Navigator is what's displayed when launching the site/app
   return(
       <Stack.Navigator>
-        <Stack.Screen name="SignIn" component={SignIn} options={{headerShown: false}} />
+        <Stack.Screen name="SignInScreen" component={SignInScreen} options={{headerShown: false}} />
+        <Stack.Screen name="AccountingScreen" component={AccountingScreen} options={{headerTitle: ''}}/>
         <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown: false}}/>
-        <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{headerTitle: ''}}/>
-        <Stack.Screen name="LoadInvoicing" component={LoadInvoicing} options={{headerTitle: ''}}/>
-        <Stack.Screen name="Accounting" component={Accounting} options={{headerTitle: ''}}/>
+        <Stack.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} options={{headerTitle: ''}}/>
+        <Stack.Screen name="LoadInvoicingScreen" component={LoadInvoicingScreen} options={{headerTitle: ''}}/>
+        <Stack.Screen name="UserProfileScreen" component={UserProfileScreen} options={{headerTitle: ''}}/>
       </Stack.Navigator>
   );
 }
