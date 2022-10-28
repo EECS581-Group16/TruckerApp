@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         borderRadius: "10px",
-        margin: "10px",
+        maxHeight: 75,
     },
     title: {
         fontSize: 25,

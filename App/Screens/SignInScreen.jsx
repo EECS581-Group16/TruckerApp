@@ -3,6 +3,7 @@ import { Text, StyleSheet, TextInput, View, TouchableOpacity, Dimensions, Pressa
 
 import { globalStyles, colors } from '../Styles/GlobalStyles.jsx';
 import AppInputField from '../Components/AppInputField.jsx';
+import AppButton from '../Components/AppButton.jsx';
 
 /*-------------------------------------------------------------------------
   Sign In Component
@@ -73,9 +74,7 @@ export default function SignInScreen({ navigation }){
         <Pressable style={globalStyles.forgotPassword} onPress={() => forgotPassword()}>
           <Text>Forgot password</Text>
         </Pressable>
-        <TouchableOpacity style={globalStyles.button} onPress={() => validateSignIn()}>
-          <Text style={globalStyles.loginText}>Login</Text>
-        </TouchableOpacity>
+        <AppButton text="Login" onPress={() => validateSignIn()}/>
       </View>
     </View>
   )
