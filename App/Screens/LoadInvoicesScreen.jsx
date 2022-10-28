@@ -46,7 +46,7 @@ export default function LoadInvoicesScreen({ navigation }){
           <View style={styles.softContainer}>
             <AppInputField placeholder="Unit Price" onChangeText={() => console.log("Text changed")}/>
           </View>
-          <AppButton text="my button" />
+          <AppButton text="Submit" />
         </View>
       </View>
   );
