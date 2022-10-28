@@ -35,12 +35,12 @@ const ValidatingUsername = () => {
 
 
   return (
-    <View style={signInStyles.mySoftRectangularContainer}>
-      {usernameError.length > 0 && <Text style={styles.errorText}>{usernameError}</Text>}
-      <Text style={[styles.primaryHeader, {justifyContent: "left"}]}>Username *</Text>
-      <TextInput value={username} onChangeText={(textInputBox) => setUsername(textInputBox)} style={styles.textInputBox} placeholder="" onKeyPress={handleKeyDown}></TextInput>
-      <TouchableOpacity style={styles.button} onPress={() => validUsername()}>
-      <Text style={styles.loginText}>Forgot Password</Text>
+    <View style={styles.mySoftRectangularContainer}>
+      {usernameError.length > 0 && <Text style={globalStyles.errorText}>{usernameError}</Text>}
+      <Text style={[globalStyles.primaryHeader, {justifyContent: "left"}]}>Username *</Text>
+      <TextInput value={username} onChangeText={(textInputBox) => setUsername(textInputBox)} style={globalStyles.textInputBox} placeholder="" onKeyPress={handleKeyDown}></TextInput>
+      <TouchableOpacity style={globalStyles.button} onPress={() => validUsername()}>
+      <Text style={globalStyles.loginText}>Forgot Password</Text>
       </TouchableOpacity>
     </View>
   );
@@ -73,14 +73,14 @@ const ResetPassword = () => {
 
 
   return (
-    <View style={signInStyles.mySoftRectangularContainer}>
-        {passwordError.length > 0 && <Text style={styles.errorText}>{passwordError}</Text>}
-        <Text style={[styles.primaryHeader, {justifyContent: "left"}]}>New Password *</Text>
-        <TextInput value={newPassword} onChangeText={(textInputBox) => setNewPassword(textInputBox)} style={styles.textInputBox} secureTextEntry={true} placeholder="" onKeyPress={handleKeyDown}></TextInput>
-        <Text style={[styles.primaryHeader, {justifyContent: "left"}]}> Confirm New Password *</Text>
-        <TextInput value={newPasswordConfirm} onChangeText={(textInputBox) => setNewPasswordConfirm(textInputBox)} style={styles.textInputBox} secureTextEntry={true} placeholder="" onKeyPress={handleKeyDown}></TextInput>
-        <TouchableOpacity style={styles.button} onPress={() => validPassword()}>
-        <Text style={styles.loginText}>Reset Password</Text>
+    <View style={styles.mySoftRectangularContainer}>
+        {passwordError.length > 0 && <Text style={globalStyles.errorText}>{passwordError}</Text>}
+        <Text style={[globalStyles.primaryHeader, {justifyContent: "left"}]}>New Password *</Text>
+        <TextInput value={newPassword} onChangeText={(textInputBox) => setNewPassword(textInputBox)} style={globalStyles.textInputBox} secureTextEntry={true} placeholder="" onKeyPress={handleKeyDown}></TextInput>
+        <Text style={[globalStyles.primaryHeader, {justifyContent: "left"}]}> Confirm New Password *</Text>
+        <TextInput value={newPasswordConfirm} onChangeText={(textInputBox) => setNewPasswordConfirm(textInputBox)} style={globalStyles.textInputBox} secureTextEntry={true} placeholder="" onKeyPress={handleKeyDown}></TextInput>
+        <TouchableOpacity style={globalStyles.button} onPress={() => validPassword()}>
+        <Text style={globalStyles.loginText}>Reset Password</Text>
         </TouchableOpacity>
       </View>
   );
