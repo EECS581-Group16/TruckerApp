@@ -3,6 +3,7 @@ import { StyleSheet, Text, TextInput, View, TouchableOpacity, Dimensions, Pressa
 
 import { globalStyles, colors } from '../Styles/GlobalStyles.jsx';
 import AppButton from '../Components/AppButton.jsx';
+import AppInputField from '../Components/AppInputField.jsx';
 
 /*-------------------------------------------------------------------------
   Home Screen Component
@@ -14,54 +15,36 @@ export default function LoadInvoicesScreen({ navigation }){
   -------------------------------------------------------------------------*/
   return (
       <View style={globalStyles.pageContainer}>
-        <View style={styles.softContainer}>
+        <View style={styles.outerContainer}>
           <Text style={styles.pageTitle}>
             Load Sheet
           </Text>
           <View style={styles.softContainer}>
-            <Text style={styles.inputHeader}>
-              Date:
-            </Text>
+            <AppInputField placeholder="Date" onChangeText={() => console.log("Text changed")}/>
           </View>
           <View style={styles.softContainer}>
-            <Text style={styles.inputHeader}>
-              Driver:
-            </Text>
+            <AppInputField placeholder="Driver" onChangeText={() => console.log("Text changed")}/>
           </View>
           <View style={styles.softContainer}>
-            <Text style={styles.inputHeader}>
-              Truck #:
-            </Text>
+            <AppInputField placeholder="Truck #" onChangeText={() => console.log("Text changed")}/>
           </View>
           <View style={styles.softContainer}>
-            <Text style={styles.inputHeader}>
-              Description:
-            </Text>
+            <AppInputField placeholder="Description" onChangeText={() => console.log("Text changed")}/>
           </View>
           <View style={styles.softContainer}>
-            <Text style={styles.inputHeader}>
-              Order #:
-            </Text>
+            <AppInputField placeholder="Order #" onChangeText={() => console.log("Text changed")}/>
           </View>
           <View style={styles.softContainer}>
-            <Text style={styles.inputHeader}>
-              Ticket #:
-            </Text>
+            <AppInputField placeholder="Ticket #" onChangeText={() => console.log("Text changed")}/>
           </View>
           <View style={styles.softContainer}>
-            <Text style={styles.inputHeader}>
-              Tons:
-            </Text>
+            <AppInputField placeholder="Tons" onChangeText={() => console.log("Text changed")}/>
           </View>
           <View style={styles.softContainer}>
-            <Text style={styles.inputHeader}>
-              Hours:
-            </Text>
+            <AppInputField placeholder="Hours" onChangeText={() => console.log("Text changed")}/>
           </View>
           <View style={styles.softContainer}>
-            <Text style={styles.inputHeader}>
-              Unit Price:
-            </Text>
+            <AppInputField placeholder="Unit Price" onChangeText={() => console.log("Text changed")}/>
           </View>
           <AppButton text="my button" color="error"/>
         </View>
@@ -86,10 +69,19 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     justifyContent: "center",
     alignItems: "center",
+    flex: 1,
+    width: "80%",
+    margin: 10,
+  },
+  outerContainer: {
+    backgroundColor: colors.white,
+    justifyContent: "center",
+    alignItems: "center",
     border: "solid",
     borderRadius: "10px",
     flex: 1,
     width: "80%",
-    marginBottom: 10
-  },
+    margin: 10,
+    padding: 10,
+  }
 });
