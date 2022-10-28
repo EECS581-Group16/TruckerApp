@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: colors.primary,
         flex: 1,
-        width: "100%",
+        width: "50%",
         height: "100%",
         justifyContent: "center",
         alignItems: "center",
