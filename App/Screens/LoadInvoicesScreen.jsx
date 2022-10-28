@@ -63,7 +63,7 @@ export default function LoadInvoicesScreen({ navigation }){
               Unit Price:
             </Text>
           </View>
-          <AppButton text="my button"/>
+          <AppButton text="my button" color="error"/>
         </View>
       </View>
   );
