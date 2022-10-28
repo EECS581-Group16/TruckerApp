@@ -2,9 +2,9 @@ import React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 import { colors } from '../Styles/GlobalStyles';
 
-function AppInputField({ placeholder, onChangeText, value, onKeyPress }) {
+function AppInputField({ placeholder, onChangeText, value, onKeyPress, secureTextEntry=false }) {
     return (
-        <TextInput style={styles.inputField} placeholder={placeholder} onChangeText={onChangeText} value={value} onKeyPress={onKeyPress} />
+        <TextInput style={styles.inputField} placeholder={placeholder} onChangeText={onChangeText} value={value} onKeyPress={onKeyPress} secureTextEntry={secureTextEntry} />
     );
 }
 

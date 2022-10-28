@@ -68,7 +68,7 @@ export default function SignInScreen({ navigation }){
       <View style={styles.mySoftRectangularContainer}>
           <AppInputField placeholder="Username" onChangeText={(textInputBox) => setUsername(textInputBox)} value={username} onKeyPress={handleKeyDown} />
           {usernameError.length > 0 && <Text style={globalStyles.errorText}>{usernameError}</Text>}
-          <AppInputField placeholder="Password" onChangeText={(textInputBox) => setPassword(textInputBox)} value={password} onKeyPress={handleKeyDown} />
+          <AppInputField placeholder="Password" onChangeText={(textInputBox) => setPassword(textInputBox)} value={password} onKeyPress={handleKeyDown} secureTextEntry={true} />
           {passwordError.length > 0 && <Text style={globalStyles.errorText}>{passwordError}</Text>}
         <Pressable style={globalStyles.forgotPassword} onPress={() => forgotPassword()}>
           <Text>Forgot password</Text>
