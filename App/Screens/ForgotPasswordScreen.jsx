@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import { Text, StyleSheet, TextInput, View, TouchableOpacity, Pressable } from 'react-native';
+import AppInputField from '../Components/AppInputField.jsx';
+import AppButton from '../Components/AppButton.jsx';
 import { globalStyles, colors } from '../Styles/GlobalStyles.jsx';
 console.reportErrorsAsExceptions = false;
 
@@ -37,11 +39,10 @@ const ValidatingUsername = () => {
   return (
     <View style={styles.mySoftRectangularContainer}>
       {usernameError.length > 0 && <Text style={globalStyles.errorText}>{usernameError}</Text>}
-      <Text style={[globalStyles.primaryHeader, {justifyContent: "left"}]}>Username *</Text>
-      <TextInput value={username} onChangeText={(textInputBox) => setUsername(textInputBox)} style={globalStyles.textInputBox} placeholder="" onKeyPress={handleKeyDown}></TextInput>
-      <TouchableOpacity style={globalStyles.button} onPress={() => validUsername()}>
-      <Text style={globalStyles.loginText}>Forgot Password</Text>
-      </TouchableOpacity>
+      <View style={styles.softContainer}>
+        <AppInputField placeholder="Username*" onChangeText={(textInputBox) => setUsername(textInputBox)} value={username} onKeyPress={handleKeyDown}/>
+      </View>
+      <AppButton text="Forgot Password" onPress={() => validUsername()}/>
     </View>
   );
 }
@@ -112,5 +113,25 @@ const styles = StyleSheet.create({
     width: '600px',
     height: '350px',
     borderRadius: '10px',
+    padding: 10,
   },
+  softContainer : {
+    backgroundColor: colors.white,
+    justifyContent: "center",
+    alignItems: "center",
+    height: "20%",
+    width: "80%",
+    margin: 10,
+  },
+  outerContainer: {
+    backgroundColor: colors.white,
+    justifyContent: "center",
+    alignItems: "center",
+    border: "solid",
+    borderRadius: "10px",
+    flex: 1,
+    width: "80%",
+    margin: 10,
+    padding: 10,
+  }
 });
