@@ -2,9 +2,9 @@ import React from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 import { colors } from '../Styles/GlobalStyles';
 
-function AppInputField({ placeholder, onChangeText }) {
+function AppInputField({ placeholder, onChangeText, value, onKeyPress }) {
     return (
-        <TextInput style={styles.inputField} placeholder={placeholder} onChangeText={onChangeText} />
+        <TextInput style={styles.inputField} placeholder={placeholder} onChangeText={onChangeText} value={value} onKeyPress={onKeyPress} />
     );
 }
 
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10,
         color: colors.dark,
+        maxHeight: 75,
     },
 });
 

@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { Text, StyleSheet, TextInput, View, TouchableOpacity, Dimensions, Pressable, Button } from 'react-native';
+
 import { globalStyles, colors } from '../Styles/GlobalStyles.jsx';
+import AppInputField from '../Components/AppInputField.jsx';
 
 /*-------------------------------------------------------------------------
   Sign In Component
@@ -64,11 +66,9 @@ export default function SignInScreen({ navigation }){
     <View style={globalStyles.pageContainer}>
       <Text style={globalStyles.pageTitle}>Sign In</Text>
       <View style={styles.mySoftRectangularContainer}>
-        <Text style={[globalStyles.primaryHeader, {justifyContent: "left"}]}>Username</Text>
-          <TextInput value={username} onChangeText={(textInputBox) => setUsername(textInputBox)} style={globalStyles.textInputBox} placeholder="" onKeyPress={handleKeyDown}></TextInput>
+          <AppInputField placeholder="Username" onChangeText={(textInputBox) => setUsername(textInputBox)} value={username} onKeyPress={handleKeyDown} />
           {usernameError.length > 0 && <Text style={globalStyles.errorText}>{usernameError}</Text>}
-        <Text style={globalStyles.primaryHeader}>Password</Text>
-          <TextInput value={password} onChangeText={(textInputBox) => setPassword(textInputBox)} secureTextEntry={true} style={globalStyles.textInputBox} placeholder="" onKeyPress={handleKeyDown}></TextInput>
+          <AppInputField placeholder="Password" onChangeText={(textInputBox) => setPassword(textInputBox)} value={password} onKeyPress={handleKeyDown} />
           {passwordError.length > 0 && <Text style={globalStyles.errorText}>{passwordError}</Text>}
         <Pressable style={globalStyles.forgotPassword} onPress={() => forgotPassword()}>
           <Text>Forgot password</Text>
@@ -90,9 +90,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     border: 'solid',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     width: '600px',
     height: '350px',
     borderRadius: '10px',
+    padding: 10,
   },
 });
