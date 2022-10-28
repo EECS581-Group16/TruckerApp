@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Dimensions, Pressable, Button } from 'react-native';
+
 import { globalStyles, colors } from '../Styles/GlobalStyles.jsx';
+import AppButton from '../Components/AppButton.jsx';
 
 /*-------------------------------------------------------------------------
   Home Screen Component
@@ -61,6 +63,7 @@ export default function LoadInvoicesScreen({ navigation }){
               Unit Price:
             </Text>
           </View>
+          <AppButton text="my button"/>
         </View>
       </View>
   );
@@ -72,7 +75,8 @@ export default function LoadInvoicesScreen({ navigation }){
 -------------------------------------------------------------------------*/
 const styles = StyleSheet.create({
   inputHeader: {
-    fontSize: 30
+    fontSize: 30,
+    height: "100%",
   },
   pageTitle: {
     fontSize: 50,
@@ -84,6 +88,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     border: "solid",
     borderRadius: "10px",
+    flex: 1,
     width: "80%",
     marginBottom: 10
   },

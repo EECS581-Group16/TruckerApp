@@ -12,18 +12,16 @@ export default function HomeScreen({ navigation }){
   -------------------------------------------------------------------------*/
   return (
       <View style={globalStyles.pageContainer}>
-        <View style={styles.mySoftRectangularContainer}>
         <Pressable style={globalStyles.forgotPassword} onPress = { () => navigation.navigate("UserProfileScreen") }>
           <Text>User Profile</Text>
         </Pressable>
-          <Text style={globalStyles.pageTitle}>User's Company</Text>
-          <TouchableOpacity style={[globalStyles.button, { margin: '5px', flex: 1 }]} onPress = { () => navigation.navigate("LoadInvoicesScreen") }>
-            <text style={globalStyles.loginText}>Load Invoices</text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[globalStyles.button, { margin: '5px', flex: 1 }]} onPress = { () => navigation.navigate("AccountingScreen") }>
-            <text style={globalStyles.loginText}>Accounting</text>
-          </TouchableOpacity>
-        </View>
+        <Text style={globalStyles.pageTitle}>User's Company</Text>
+        <TouchableOpacity style={[globalStyles.button, { margin: '5px', flex: 1 }]} onPress = { () => navigation.navigate("LoadInvoicesScreen") }>
+          <text style={globalStyles.loginText}>Load Invoices</text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[globalStyles.button, { margin: '5px', flex: 1 }]} onPress = { () => navigation.navigate("AccountingScreen") }>
+          <text style={globalStyles.loginText}>Accounting</text>
+        </TouchableOpacity>
       </View>
   );
 
