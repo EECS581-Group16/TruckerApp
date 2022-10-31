@@ -3,9 +3,9 @@ import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 
 import { colors } from '../Styles/GlobalStyles';
 
-function AppButton({text, color = "primary", onPress = (() => console.log("Button handle not set"))}) {
+function AppButton({text, color = "primary", width, onPress = (() => console.log("Button handle not set"))}) {
     return (
-        <TouchableOpacity style={[styles.button, {backgroundColor: colors[color]}]} onPress={onPress}>
+        <TouchableOpacity style={[styles.button, {backgroundColor: colors[color], width: width}]} onPress={onPress}>
             <Text style={styles.title}>
                 {text}
             </Text>
