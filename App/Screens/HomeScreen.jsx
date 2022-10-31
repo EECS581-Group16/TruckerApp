@@ -17,10 +17,10 @@ export default function HomeScreen({ navigation }){
         </Pressable>
         <Text style={globalStyles.pageTitle}>User's Company</Text>
         <TouchableOpacity style={[globalStyles.button, { margin: '5px', flex: 1 }]} onPress = { () => navigation.navigate("LoadInvoicesScreen") }>
-          <Text style={globalStyles.loginText}>Load Invoices</Text>
+          <Text style={globalStyles.loginText}>Submit Load Ticket</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[globalStyles.button, { margin: '5px', flex: 1 }]} onPress = { () => navigation.navigate("AccountingScreen") }>
-          <Text style={globalStyles.loginText}>Accounting</Text>
+          <Text style={globalStyles.loginText}>Invoices</Text>
         </TouchableOpacity>
       </View>
   );

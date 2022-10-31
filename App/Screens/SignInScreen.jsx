@@ -72,7 +72,7 @@ export default function SignInScreen({ navigation }){
           <AppInputField placeholder="Password" onChangeText={(textInputBox) => setPassword(textInputBox)} value={password} onKeyPress={handleKeyDown} secureTextEntry={true} />
           {passwordError.length > 0 && <Text style={globalStyles.errorText}>{passwordError}</Text>}
         <Pressable style={globalStyles.forgotPassword} onPress={() => forgotPassword()}>
-          <Text>Forgot password</Text>
+          <Text style={{color: colors.primary}}>Forgot password</Text>
         </Pressable>
         <AppButton text="Login" onPress={() => validateSignIn()}/>
       </View>

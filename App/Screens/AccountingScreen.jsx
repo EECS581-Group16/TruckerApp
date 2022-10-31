@@ -15,7 +15,7 @@ export default function AccountingScreen(props){
     <View style={globalStyles.pageContainer}>
       <View style={styles.outerContainer}>
         <Text style={styles.title}>
-          Accounting
+          Invoices
         </Text>
         <View style={styles.softContainer}>
           <View style={styles.cardHeader}>

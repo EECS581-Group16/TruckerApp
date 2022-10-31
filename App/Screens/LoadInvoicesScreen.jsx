@@ -17,7 +17,7 @@ export default function LoadInvoicesScreen({ navigation }){
       <View style={globalStyles.pageContainer}>
         <View style={styles.outerContainer}>
           <Text style={styles.pageTitle}>
-            Load Sheet
+            Load Ticket
           </Text>
           <View style={styles.softContainer}>
             <AppInputField placeholder="Date" onChangeText={() => console.log("Text changed")}/>
