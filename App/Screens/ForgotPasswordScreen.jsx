@@ -57,9 +57,12 @@ const ResetPassword = () => {
   const validPassword = () => {
     if (newPassword === newPasswordConfirm) { //this will eventually run against pararameters for a password, such as 8 characters in length, number, etc. it will also ensure it is not the old password
       setValidatedPassword(true);
+      setNewPassword("");
+      setNewPasswordConfirm("");
       if (passwordError.length > 0) {
         setPasswordError("");
       }
+      navigation.navigate("SignInScreen");
     }
     else {
       setPasswordError("Passwords do not match!");
@@ -76,13 +79,13 @@ const ResetPassword = () => {
   return (
     <View style={styles.mySoftRectangularContainer}>
         {passwordError.length > 0 && <Text style={globalStyles.errorText}>{passwordError}</Text>}
-        <Text style={[globalStyles.primaryHeader, {justifyContent: "left"}]}>New Password *</Text>
-        <TextInput value={newPassword} onChangeText={(textInputBox) => setNewPassword(textInputBox)} style={globalStyles.textInputBox} secureTextEntry={true} placeholder="" onKeyPress={handleKeyDown}></TextInput>
-        <Text style={[globalStyles.primaryHeader, {justifyContent: "left"}]}> Confirm New Password *</Text>
-        <TextInput value={newPasswordConfirm} onChangeText={(textInputBox) => setNewPasswordConfirm(textInputBox)} style={globalStyles.textInputBox} secureTextEntry={true} placeholder="" onKeyPress={handleKeyDown}></TextInput>
-        <TouchableOpacity style={globalStyles.button} onPress={() => validPassword()}>
-        <Text style={globalStyles.loginText}>Reset Password</Text>
-        </TouchableOpacity>
+        <View style={styles.softContainer}>
+          <AppInputField placeholder="New Password*" onChangeText={(textInputBox) => setNewPassword(textInputBox)} value={newPassword} secureTextEntry="true" onKeyPress={handleKeyDown}/>
+        </View>
+        <View style={styles.softContainer}>
+          <AppInputField placeholder="Confirm New Password*" onChangeText={(textInputBox) => setNewPasswordConfirm(textInputBox)} value={newPasswordConfirm} secureTextEntry="true" onKeyPress={handleKeyDown}/>
+        </View>
+        <AppButton text="Reset Password" onPress={() => validPassword()}/>
       </View>
   );
 }
