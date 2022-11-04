@@ -3,11 +3,88 @@ import { StyleSheet, Text, TextInput, View, TouchableOpacity, Dimensions, Pressa
 
 import { globalStyles, colors } from '../Styles/GlobalStyles.jsx';
 
+//test data to get the page to dynamically output the data.
+const data = [
+  {
+      "TruckNumber": "1",
+      "Driver": "NM",
+      "Date": "10-20-2022",
+      "TicketNumber": 435,
+      "OrderNumber": 111,
+      "Hours": 23.5,
+      "Tons": 103.43,
+      "UnitPrice": 24
+  },
+  {
+      "TruckNumber": "2",
+      "Driver": "OO",
+      "Date": "10-20-2022",
+      "TicketNumber": 435,
+      "OrderNumber": 111,
+      "Hours": 23.5,
+      "Tons": 103.43,
+      "UnitPrice": 24
+  },
+  {
+      "TruckNumber": "3",
+      "Driver": "PP",
+      "Date": "10-20-2022",
+      "TicketNumber": 435,
+      "OrderNumber": 111,
+      "Hours": 23.5,
+      "Tons": 103.43,
+      "UnitPrice": 24
+  }
+];
+
+function AccoutingData({dataIndex}) {
+  //dataIndex = 0;
+  return (
+    <View style={styles.softContainer}>
+      <View style={styles.cardHeader}>
+        <Text style={styles.truckNum}>
+          Truck #: {data[dataIndex].TruckNumber}
+        </Text>
+        <Text style={styles.driver}>
+          Driver: {data[dataIndex].Driver}
+        </Text>
+      </View>
+      <View style={styles.cardBody}>
+        <Text>
+          Date: {data[dataIndex].Date}
+        </Text>
+        <Text>
+          Ticket #: {data[dataIndex].TicketNumber}
+        </Text>
+        <Text>
+          Order #: {data[dataIndex].OrderNumber}
+        </Text>
+        <Text>
+          Hours: {data[dataIndex].Hours}
+        </Text>
+        <Text>
+          Tons: {data[dataIndex].Tons}
+        </Text>
+        <Text>
+          Unit Price: {data[dataIndex].UnitPrice}
+        </Text>
+        <Text>
+          Total: {data[dataIndex].UnitPrice * data[dataIndex].Tons}
+        </Text>
+      </View>
+      <View style={styles.cardFooter}>
+        <Text style={styles.truckTotal}>
+          Truck Total:
+        </Text>
+      </View>
+    </View>
+  );
+}
+
 /*-------------------------------------------------------------------------
   Home Screen Component
 -------------------------------------------------------------------------*/
 export default function AccountingScreen(props){
-
   /*-------------------------------------------------------------------------
     Home Screen
   -------------------------------------------------------------------------*/
@@ -17,44 +94,9 @@ export default function AccountingScreen(props){
         <Text style={styles.title}>
           Invoices
         </Text>
-        <View style={styles.softContainer}>
-          <View style={styles.cardHeader}>
-            <Text style={styles.truckNum}>
-              Truck #:
-            </Text>
-            <Text style={styles.driver}>
-              Driver:
-            </Text>
-          </View>
-          <View style={styles.cardBody}>
-            <Text>
-              Date:
-            </Text>
-            <Text>
-              Ticket #:
-            </Text>
-            <Text>
-              Order #:
-            </Text>
-            <Text>
-              Hours:
-            </Text>
-            <Text>
-              Tons:
-            </Text>
-            <Text>
-              Unit Price:
-            </Text>
-            <Text>
-              Total:
-            </Text>
-          </View>
-          <View style={styles.cardFooter}>
-            <Text style={styles.truckTotal}>
-              Truck Total:
-            </Text>
-          </View>
-        </View>
+        <AccoutingData dataIndex={0}/>
+        <AccoutingData dataIndex={1}/>
+        <AccoutingData dataIndex={2}/>
       </View>
     </View>
   );
