@@ -5,7 +5,7 @@ import { FlatList } from 'react-native-web';
 import { globalStyles, colors } from '../Styles/GlobalStyles.jsx';
 
 //test data to get the page to dynamically output the data.
-const data = [
+const testData = [
   {
       "TruckNumber": "1",
       "Driver": "NM",
@@ -19,7 +19,7 @@ const data = [
   {
       "TruckNumber": "2",
       "Driver": "OO",
-      "Date": "10-20-2022",
+      "Date": "10-30-2022",
       "TicketNumber": 435,
       "OrderNumber": 111,
       "Hours": 23.5,
@@ -67,47 +67,55 @@ const data = [
     "UnitPrice": 24
 }
 ];
-//this function takes in an object or soon to be query and outputs the Invoice data.
-function AccoutingData({dataIndex}) {
+//This will display every truck and all the data it has
+//TODO: refactor so it will only display data under correct truck number.
+function TruckAccoutingData({dataIndex}) {
   return (
     <View style={styles.softContainer}>
       <View style={styles.cardHeader}>
         <Text style={styles.truckNum}>
-          Truck #: {data[dataIndex].TruckNumber}
+          Truck #: {testData[dataIndex].TruckNumber}
         </Text>
         <Text style={styles.driver}>
-          Driver: {data[dataIndex].Driver}
+          Driver: {testData[dataIndex].Driver}
         </Text>
       </View>
-      <View style={styles.cardBody}>
-        <Text>
-          Date: {data[dataIndex].Date}
-        </Text>
-        <Text>
-          Ticket #: {data[dataIndex].TicketNumber}
-        </Text>
-        <Text>
-          Order #: {data[dataIndex].OrderNumber}
-        </Text>
-        <Text>
-          Hours: {data[dataIndex].Hours}
-        </Text>
-        <Text>
-          Tons: {data[dataIndex].Tons}
-        </Text>
-        <Text>
-          Unit Price: {data[dataIndex].UnitPrice}
-        </Text>
-        <Text>
-          Total: {data[dataIndex].UnitPrice * data[dataIndex].Tons}
-        </Text>
-      </View>
+      <InvoiceData index={dataIndex}/>
+      <InvoiceData index={dataIndex}/>
       <View style={styles.cardFooter}>
         <Text style={styles.truckTotal}>
           Truck Total:
         </Text>
       </View>
     </View>
+  );
+}
+//This will display every data item with the same truck number
+function InvoiceData({index}) {
+  return (
+    <View style={styles.cardBody}>
+        <Text>
+          Date: {testData[index].Date}
+        </Text>
+        <Text>
+          Ticket #: {testData[index].TicketNumber}
+        </Text>
+        <Text>
+          Order #: {testData[index].OrderNumber}
+        </Text>
+        <Text>
+          Hours: {testData[index].Hours}
+        </Text>
+        <Text>
+          Tons: {testData[index].Tons}
+        </Text>
+        <Text>
+          Unit Price: {testData[index].UnitPrice}
+        </Text>
+        <Text>
+          Total: {testData[index].UnitPrice * testData[index].Tons}
+        </Text>
+      </View>
   );
 }
 
@@ -118,6 +126,7 @@ export default function AccountingScreen(props){
   /*-------------------------------------------------------------------------
     Home Screen
   -------------------------------------------------------------------------*/
+  //TODO: fix FlatList so that it will dynmically display every truck...not just hardcoded values.
   return (
     <View style={globalStyles.pageContainer}>
       <View style={styles.outerContainer}>
@@ -133,7 +142,7 @@ export default function AccountingScreen(props){
             {dataIndex: 4},
             {dataIndex: 5}
           ]}
-          renderItem={({item}) => <AccoutingData dataIndex={item.dataIndex} />} 
+          renderItem={({item}) => <TruckAccoutingData dataIndex={item.dataIndex} />} 
         />
       </View>
     </View>
