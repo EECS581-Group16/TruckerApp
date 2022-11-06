@@ -5,6 +5,8 @@ import { globalStyles, colors } from '../Styles/GlobalStyles.jsx';
 import AppInputField from '../Components/AppInputField.jsx';
 import AppButton from '../Components/AppButton.jsx';
 
+const {width, height} = Dimensions.get('window');
+
 /*-------------------------------------------------------------------------
   Sign In Component
 -------------------------------------------------------------------------*/
@@ -90,8 +92,8 @@ const styles = StyleSheet.create({
     border: 'solid',
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    width: '600px',
-    height: '350px',
+    width: width * .8,
+    height: height * .5,
     borderRadius: '10px',
     padding: 10,
   },

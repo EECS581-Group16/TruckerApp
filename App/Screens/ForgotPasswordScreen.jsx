@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
-import { Text, StyleSheet, TextInput, View, TouchableOpacity, Pressable } from 'react-native';
+import { Text, StyleSheet, TextInput, View, TouchableOpacity, Pressable, Dimensions } from 'react-native';
 import AppInputField from '../Components/AppInputField.jsx';
 import AppButton from '../Components/AppButton.jsx';
 import { globalStyles, colors } from '../Styles/GlobalStyles.jsx';
 console.reportErrorsAsExceptions = false;
+
+const {width, height} = Dimensions.get('window');
 
 /*-------------------------------------------------------------------------
   Forgot Password Component
@@ -113,8 +115,8 @@ const styles = StyleSheet.create({
     border: 'solid',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '600px',
-    height: '350px',
+    width: width * .8,
+    height: height * .5,
     borderRadius: '10px',
     padding: 10,
   },
