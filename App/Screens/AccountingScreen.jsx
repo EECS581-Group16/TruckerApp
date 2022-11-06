@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Dimensions, Pressable, Button } from 'react-native';
+import { FlatList } from 'react-native-web';
 
 import { globalStyles, colors } from '../Styles/GlobalStyles.jsx';
 
@@ -34,11 +35,40 @@ const data = [
       "Hours": 23.5,
       "Tons": 103.43,
       "UnitPrice": 24
-  }
+  },
+  {
+    "TruckNumber": "4",
+    "Driver": "NM",
+    "Date": "10-20-2022",
+    "TicketNumber": 435,
+    "OrderNumber": 111,
+    "Hours": 23.5,
+    "Tons": 103.43,
+    "UnitPrice": 24
+},
+{
+    "TruckNumber": "5",
+    "Driver": "OO",
+    "Date": "10-20-2022",
+    "TicketNumber": 435,
+    "OrderNumber": 111,
+    "Hours": 23.5,
+    "Tons": 103.43,
+    "UnitPrice": 24
+},
+{
+    "TruckNumber": "6",
+    "Driver": "PP",
+    "Date": "10-20-2022",
+    "TicketNumber": 435,
+    "OrderNumber": 111,
+    "Hours": 23.5,
+    "Tons": 103.43,
+    "UnitPrice": 24
+}
 ];
-
+//this function takes in an object or soon to be query and outputs the Invoice data.
 function AccoutingData({dataIndex}) {
-  //dataIndex = 0;
   return (
     <View style={styles.softContainer}>
       <View style={styles.cardHeader}>
@@ -94,9 +124,17 @@ export default function AccountingScreen(props){
         <Text style={styles.title}>
           Invoices
         </Text>
-        <AccoutingData dataIndex={0}/>
-        <AccoutingData dataIndex={1}/>
-        <AccoutingData dataIndex={2}/>
+        <FlatList 
+          data={[
+            {dataIndex: 0},
+            {dataIndex: 1},
+            {dataIndex: 2},
+            {dataIndex: 3},
+            {dataIndex: 4},
+            {dataIndex: 5}
+          ]}
+          renderItem={({item}) => <AccoutingData dataIndex={item.dataIndex} />} 
+        />
       </View>
     </View>
   );
