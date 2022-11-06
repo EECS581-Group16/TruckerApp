@@ -162,6 +162,9 @@ const styles = StyleSheet.create({
   outerContainer : {
     width: "80%",
     height: "80%",
+    backgroundColor: "#cccccc",
+    borderRadius: "10px",
+    padding: 10
   },
   softContainer : {
     backgroundColor: colors.white,
