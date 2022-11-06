@@ -160,8 +160,8 @@ const styles = StyleSheet.create({
     textAlign: "right",
   },
   outerContainer : {
-    width: "80%",
-    height: "80%",
+    width: "95%",
+    height: "95%",
     backgroundColor: "#cccccc",
     borderRadius: "10px",
     padding: 10
