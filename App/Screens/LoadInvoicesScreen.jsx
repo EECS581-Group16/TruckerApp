@@ -12,11 +12,22 @@ import AppInputField from '../Components/AppInputField.jsx';
 -------------------------------------------------------------------------*/
 export default function LoadInvoicesScreen({ navigation }){
 
-  const [date, setDate] = useState("");
+  //this function will submit the input data to the backend to be uploaded to the database
+  //TODO: 1.) submit the data
+  //      2.) error handling/input handling
+  const handleSubmit = () => {
+    console.log("submitting...")
+  }
+
+  const [date, setDate] = useState(""); //look at using {varOne: new Data()}
   const [driver, setDriver] = useState("");
   const [TruckNum, setTruckNum] = useState("");
   const [description, setDescription] = useState("");
   const [orderNum, setOrderNum] = useState("");
+  const [ticketNum, setTicketNum] = useState("");
+  const [tons, setTons] = useState(""); //database stores this as an int
+  const [hours, setHours] = useState(""); //database stores this as an int
+  const [unitPrice, setUnitPrice] = useState(""); //database stores this as an int
 
   /*-------------------------------------------------------------------------
     Home Screen
@@ -28,33 +39,33 @@ export default function LoadInvoicesScreen({ navigation }){
             Load Ticket
           </Text>
           <View style={styles.softContainer}>
-            <AppInputField placeholder="Date" onChangeText={() => console.log("Text changed")}/>
+            <AppInputField placeholder="Date" onChangeText={(textInputBox) => setDate(textInputBox)} value={date}/>
           </View>
           <View style={styles.softContainer}>
-            <AppInputField placeholder="Driver" onChangeText={() => console.log("Text changed")}/>
+            <AppInputField placeholder="Driver" onChangeText={(textInputBox) => setDriver(textInputBox)} value={driver}/>
           </View>
           <View style={styles.softContainer}>
-            <AppInputField placeholder="Truck #" onChangeText={() => console.log("Text changed")}/>
+            <AppInputField placeholder="Truck #" onChangeText={(textInputBox) => setTruckNum(textInputBox)} value={TruckNum}/>
           </View>
           <View style={styles.softContainer}>
-            <AppInputField placeholder="Description" onChangeText={() => console.log("Text changed")}/>
+            <AppInputField placeholder="Description" onChangeText={(textInputBox) => setDescription(textInputBox)} value={description}/>
           </View>
           <View style={styles.softContainer}>
-            <AppInputField placeholder="Order #" onChangeText={() => console.log("Text changed")}/>
+            <AppInputField placeholder="Order #" onChangeText={(textInputBox) => setOrderNum(textInputBox)} value={orderNum}/>
           </View>
           <View style={styles.softContainer}>
-            <AppInputField placeholder="Ticket #" onChangeText={() => console.log("Text changed")}/>
+            <AppInputField placeholder="Ticket #" onChangeText={(textInputBox) => setTicketNum(textInputBox)} value={ticketNum}/>
           </View>
           <View style={styles.softContainer}>
-            <AppInputField placeholder="Tons" onChangeText={() => console.log("Text changed")}/>
+            <AppInputField placeholder="Tons" onChangeText={(textInputBox) => setTons(textInputBox)} value={tons}/>
           </View>
           <View style={styles.softContainer}>
-            <AppInputField placeholder="Hours" onChangeText={() => console.log("Text changed")}/>
+            <AppInputField placeholder="Hours" onChangeText={(textInputBox) => setHours(textInputBox)} value={hours}/>
           </View>
           <View style={styles.softContainer}>
-            <AppInputField placeholder="Unit Price" onChangeText={() => console.log("Text changed")}/>
+            <AppInputField placeholder="Unit Price" onChangeText={(textInputBox) => setUnitPrice(textInputBox)} value={unitPrice}/>
           </View>
-          <AppButton text="Submit" />
+          <AppButton text="Submit" onPress={() => handleSubmit()} />
         </View>
       </View>
   );
