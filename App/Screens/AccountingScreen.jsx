@@ -4,69 +4,6 @@ import { FlatList } from 'react-native-web';
 
 import { globalStyles, colors } from '../Styles/GlobalStyles.jsx';
 
-//test data to get the page to dynamically output the data.
-const testData = [
-  {
-      "TruckNumber": "1",
-      "Driver": "NM",
-      "Date": "10-20-2022",
-      "TicketNumber": 435,
-      "OrderNumber": 111,
-      "Hours": 23.5,
-      "Tons": 103.43,
-      "UnitPrice": 24
-  },
-  {
-      "TruckNumber": "2",
-      "Driver": "OO",
-      "Date": "10-30-2022",
-      "TicketNumber": 435,
-      "OrderNumber": 111,
-      "Hours": 23.5,
-      "Tons": 103.43,
-      "UnitPrice": 24
-  },
-  {
-      "TruckNumber": "3",
-      "Driver": "PP",
-      "Date": "10-20-2022",
-      "TicketNumber": 435,
-      "OrderNumber": 111,
-      "Hours": 23.5,
-      "Tons": 103.43,
-      "UnitPrice": 24
-  },
-  {
-    "TruckNumber": "4",
-    "Driver": "NM",
-    "Date": "10-20-2022",
-    "TicketNumber": 435,
-    "OrderNumber": 111,
-    "Hours": 23.5,
-    "Tons": 103.43,
-    "UnitPrice": 24
-},
-{
-    "TruckNumber": "5",
-    "Driver": "OO",
-    "Date": "10-20-2022",
-    "TicketNumber": 435,
-    "OrderNumber": 111,
-    "Hours": 23.5,
-    "Tons": 103.43,
-    "UnitPrice": 24
-},
-{
-    "TruckNumber": "6",
-    "Driver": "PP",
-    "Date": "10-20-2022",
-    "TicketNumber": 435,
-    "OrderNumber": 111,
-    "Hours": 23.5,
-    "Tons": 103.43,
-    "UnitPrice": 24
-}
-];
 //This will display every truck and all the data it has
 //TODO: refactor so it will only display data under correct truck number.
 function TruckAccoutingData({dataIndex}) {
@@ -74,10 +11,10 @@ function TruckAccoutingData({dataIndex}) {
     <View style={styles.softContainer}>
       <View style={styles.cardHeader}>
         <Text style={styles.truckNum}>
-          Truck #: {testData[dataIndex].TruckNumber}
+          Truck #: {}
         </Text>
         <Text style={styles.driver}>
-          Driver: {testData[dataIndex].Driver}
+          Driver: {}
         </Text>
       </View>
       <InvoiceData index={dataIndex}/>
@@ -95,25 +32,25 @@ function InvoiceData({index}) {
   return (
     <View style={styles.cardBody}>
         <Text>
-          Date: {testData[index].Date}
+          Date: {}
         </Text>
         <Text>
-          Ticket #: {testData[index].TicketNumber}
+          Ticket #: {}
         </Text>
         <Text>
-          Order #: {testData[index].OrderNumber}
+          Order #: {}
         </Text>
         <Text>
-          Hours: {testData[index].Hours}
+          Hours: {}
         </Text>
         <Text>
-          Tons: {testData[index].Tons}
+          Tons: {}
         </Text>
         <Text>
-          Unit Price: {testData[index].UnitPrice}
+          Unit Price: {}
         </Text>
         <Text>
-          Total: {testData[index].UnitPrice * testData[index].Tons}
+          Total: {}
         </Text>
       </View>
   );
@@ -123,6 +60,20 @@ function InvoiceData({index}) {
   Home Screen Component
 -------------------------------------------------------------------------*/
 export default function AccountingScreen(props){
+
+  const apiURL = 'http://localhost:5000'
+  const [invoices, setInvoices] = useState([]);
+
+  useEffect(() => {
+    //TODO: 1.) make get request to backend - DONE - MXO
+    //      2.) store data into useState array
+    async function fetchInvoices() {
+      const response = await fetch(`${apiURL}/invoices`);
+      const newInvoices = response.json();
+      setInvoices(newInvoices);
+    }
+    fetchInvoices();
+  },[])
   /*-------------------------------------------------------------------------
     Home Screen
   -------------------------------------------------------------------------*/
