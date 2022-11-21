@@ -5,6 +5,12 @@ import { globalStyles, colors } from '../Styles/GlobalStyles.jsx';
 import AppButton from '../Components/AppButton.jsx';
 import AppInputField from '../Components/AppInputField.jsx';
 
+const [date, setDate] = useState("");
+const [driver, setDriver] = useState("");
+const [TruckNum, setTruckNum] = useState("");
+const [description, setDescription] = useState("");
+const [orderNum, setOrderNum] = useState("");
+
 /*-------------------------------------------------------------------------
   Home Screen Component
 -------------------------------------------------------------------------*/
