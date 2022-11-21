@@ -15,13 +15,31 @@ export default function LoadInvoicesScreen({ navigation }){
   //this function will submit the input data to the backend to be uploaded to the database
   //TODO: 1.) submit the data
   //      2.) error handling/input handling
-  const handleSubmit = () => {
-    console.log("submitting...")
+  const apiURL = 'http://localhost:5000'
+  const handleSubmit = async () => {
+    await fetch(`${apiURL}/invoices`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        date: date,
+        driver: driver,
+        truckNum: truckNum,
+        description: description,
+        orderNum: orderNum,
+        ticketNum: ticketNum,
+        tons: tons,
+        hours: hours,
+        unitPrice: unitPrice
+      })
+    });
   }
 
   const [date, setDate] = useState(""); //look at using {varOne: new Data()}
   const [driver, setDriver] = useState("");
-  const [TruckNum, setTruckNum] = useState("");
+  const [truckNum, setTruckNum] = useState("");
   const [description, setDescription] = useState("");
   const [orderNum, setOrderNum] = useState("");
   const [ticketNum, setTicketNum] = useState("");
@@ -45,7 +63,7 @@ export default function LoadInvoicesScreen({ navigation }){
             <AppInputField placeholder="Driver" onChangeText={(textInputBox) => setDriver(textInputBox)} value={driver}/>
           </View>
           <View style={styles.softContainer}>
-            <AppInputField placeholder="Truck #" onChangeText={(textInputBox) => setTruckNum(textInputBox)} value={TruckNum}/>
+            <AppInputField placeholder="Truck #" onChangeText={(textInputBox) => setTruckNum(textInputBox)} value={truckNum}/>
           </View>
           <View style={styles.softContainer}>
             <AppInputField placeholder="Description" onChangeText={(textInputBox) => setDescription(textInputBox)} value={description}/>
