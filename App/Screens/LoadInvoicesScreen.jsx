@@ -6,14 +6,14 @@ import AppButton from '../Components/AppButton.jsx';
 import AppInputField from '../Components/AppInputField.jsx';
 
 
-
+//TODO: make date useState an actual date variable so it can work with the database
 /*-------------------------------------------------------------------------
   Home Screen Component
 -------------------------------------------------------------------------*/
 export default function LoadInvoicesScreen({ navigation }){
 
   //this function will submit the input data to the backend to be uploaded to the database
-  //TODO: 1.) submit the data
+  //TODO: 1.) submit the data - DONE - MXO
   //      2.) error handling/input handling
   const apiURL = 'http://localhost:5000'
   const handleSubmit = async () => {
