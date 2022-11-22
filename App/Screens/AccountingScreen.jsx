@@ -62,17 +62,19 @@ function InvoiceData({index}) {
 export default function AccountingScreen(props){
 
   const apiURL = 'http://localhost:5000'
-  const [invoices, setInvoices] = useState([]);
+  const [invoices, setInvoices] = useState([{}]); //might need to be useState([])
 
   useEffect(() => {
-    //TODO: 1.) make get request to backend - DONE - MXO
+    //TODO: 1.) make get request to backend - DONE (verfified with react dev tools) - MXO
     //      2.) store data into useState array
     async function fetchInvoices() {
       const response = await fetch(`${apiURL}/invoices`);
-      const newInvoices = response.json();
+      const newInvoices = await response.json();
       setInvoices(newInvoices);
     }
     fetchInvoices();
+    
+      
   },[])
   /*-------------------------------------------------------------------------
     Home Screen
