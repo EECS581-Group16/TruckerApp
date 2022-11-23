@@ -4,7 +4,7 @@ import { FlatList } from 'react-native-web';
 
 import { globalStyles, colors } from '../Styles/GlobalStyles.jsx';
 
-//This will display every truck and all the data it has
+//This will display every invoice and all the data it has
 //TODO: refactor so it will only display data under correct truck number.
 function TruckAccoutingData({invoice}) {
   return (
@@ -26,7 +26,8 @@ function TruckAccoutingData({invoice}) {
     </View>
   );
 }
-//This will display every data item with the same truck number
+//This will display date, ticket_number, order, hours, tons, and rate
+//TODO: calculate total
 function InvoiceData({invoice}) {
   return (
     <View style={styles.cardBody}>
