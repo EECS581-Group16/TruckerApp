@@ -6,19 +6,18 @@ import { globalStyles, colors } from '../Styles/GlobalStyles.jsx';
 
 //This will display every truck and all the data it has
 //TODO: refactor so it will only display data under correct truck number.
-function TruckAccoutingData({dataIndex}) {
+function TruckAccoutingData({invoice}) {
   return (
     <View style={styles.softContainer}>
       <View style={styles.cardHeader}>
         <Text style={styles.truckNum}>
-          Truck #: {}
+          Truck #: {invoice.truck_number}
         </Text>
         <Text style={styles.driver}>
-          Driver: {}
+          Driver: {invoice.driver_id}
         </Text>
       </View>
-      <InvoiceData index={dataIndex}/>
-      <InvoiceData index={dataIndex}/>
+      <InvoiceData invoice={invoice}/>
       <View style={styles.cardFooter}>
         <Text style={styles.truckTotal}>
           Truck Total:
@@ -28,26 +27,26 @@ function TruckAccoutingData({dataIndex}) {
   );
 }
 //This will display every data item with the same truck number
-function InvoiceData({index}) {
+function InvoiceData({invoice}) {
   return (
     <View style={styles.cardBody}>
         <Text>
-          Date: {}
+          Date: {invoice.date}
         </Text>
         <Text>
-          Ticket #: {}
+          Ticket #: {invoice.ticket_number}
         </Text>
         <Text>
-          Order #: {}
+          Order #: {invoice.order}
         </Text>
         <Text>
-          Hours: {}
+          Hours: {invoice.hours}
         </Text>
         <Text>
-          Tons: {}
+          Tons: {invoice.tons}
         </Text>
         <Text>
-          Unit Price: {}
+          Unit Price: {invoice.rate}
         </Text>
         <Text>
           Total: {}
@@ -86,17 +85,11 @@ export default function AccountingScreen(props){
         <Text style={styles.title}>
           Invoices
         </Text>
-        <FlatList 
-          data={[
-            {dataIndex: 0},
-            {dataIndex: 1},
-            {dataIndex: 2},
-            {dataIndex: 3},
-            {dataIndex: 4},
-            {dataIndex: 5}
-          ]}
-          renderItem={({item}) => <TruckAccoutingData dataIndex={item.dataIndex} />} 
-        />
+        {invoices.map((invoice) => {
+          return(
+            <TruckAccoutingData invoice={invoice}/>
+          );
+        })}
       </View>
     </View>
   );
