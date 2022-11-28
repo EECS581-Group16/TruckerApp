@@ -35,6 +35,16 @@ export default function LoadInvoicesScreen({ navigation }){
         unitPrice: unitPrice
       })
     });
+
+    setDate("");
+    setDriver("");
+    setTruckNum("");
+    setDescription("");
+    setOrderNum("");
+    setTicketNum("");
+    setTons("");
+    setHours("");
+    setUnitPrice("");
   }
 
   const [date, setDate] = useState(""); //look at using {varOne: new Data()}
