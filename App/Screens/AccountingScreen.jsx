@@ -47,10 +47,10 @@ function InvoiceData({invoice}) {
           Tons: {invoice.tons}
         </Text>
         <Text>
-          Unit Price: {invoice.rate}
+          Unit Price: ${invoice.rate}
         </Text>
         <Text>
-          Total: {}
+          Total: ${(invoice.rate * invoice.tons).toFixed(2)}
         </Text>
       </View>
   );
