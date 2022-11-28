@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import { StyleSheet, Text, TextInput, View, TouchableOpacity, Dimensions, Pressable, Button } from 'react-native';
-import { FlatList } from 'react-native-web';
 
 import { globalStyles, colors } from '../Styles/GlobalStyles.jsx';
 
