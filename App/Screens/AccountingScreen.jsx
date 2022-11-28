@@ -26,7 +26,6 @@ function TruckAccoutingData({invoice}) {
   );
 }
 //This will display date, ticket_number, order, hours, tons, and rate
-//TODO: calculate total
 function InvoiceData({invoice}) {
   return (
     <View style={styles.cardBody}>
@@ -61,11 +60,9 @@ function InvoiceData({invoice}) {
 export default function AccountingScreen(props){
 
   const apiURL = 'http://localhost:5000'
-  const [invoices, setInvoices] = useState([{}]); //might need to be useState([])
+  const [invoices, setInvoices] = useState([{}]);
 
   useEffect(() => {
-    //TODO: 1.) make get request to backend - DONE (verfified with react dev tools) - MXO
-    //      2.) store data into useState array
     async function fetchInvoices() {
       const response = await fetch(`${apiURL}/invoices`);
       const newInvoices = await response.json();
@@ -78,7 +75,6 @@ export default function AccountingScreen(props){
   /*-------------------------------------------------------------------------
     Home Screen
   -------------------------------------------------------------------------*/
-  //TODO: fix FlatList so that it will dynmically display every truck...not just hardcoded values.
   return (
     <View style={globalStyles.pageContainer}>
       <View style={styles.outerContainer}>
