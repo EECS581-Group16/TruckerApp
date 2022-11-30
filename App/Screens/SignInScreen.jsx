@@ -106,6 +106,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     width: width * .8,
     height: height * .5,
+    maxWidth: '600px',
     borderRadius: '10px',
     padding: 10,
   },

@@ -100,6 +100,7 @@ export const globalStyles = StyleSheet.create({
     backgroundColor: colors.primary,
     width: '70%',
     height: '50px',
+    maxWidth: '500px',
     borderRadius: '10px',
   },
 });
