@@ -47,6 +47,15 @@ export default function LoadInvoicesScreen({ navigation }){
     setUnitPrice("");
   }
 
+  const handleSubmitChecker = () => {
+    if(date.length == 0 || driver.length == 0 || truckNum.length == 0 || description.length == 0 || orderNum.length == 0 
+      || ticketNum.length == 0 || tons.length == 0 || hours.length == 0 || unitPrice.length == 0){
+        console.log("Not every blank is filled!")
+        return;
+      }
+      handleSubmit();
+  }
+
   const [date, setDate] = useState(""); //look at using {varOne: new Data()}
   const [driver, setDriver] = useState("");
   const [truckNum, setTruckNum] = useState("");
@@ -93,7 +102,7 @@ export default function LoadInvoicesScreen({ navigation }){
           <View style={styles.softContainer}>
             <AppInputField placeholder="Unit Price" onChangeText={(textInputBox) => setUnitPrice(textInputBox)} value={unitPrice}/>
           </View>
-          <AppButton text="Submit" onPress={() => handleSubmit()} />
+          <AppButton text="Submit" onPress={() => handleSubmitChecker()} />
         </View>
       </View>
   );
