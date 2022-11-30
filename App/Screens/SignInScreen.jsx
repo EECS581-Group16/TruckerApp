@@ -17,8 +17,7 @@ export default function SignInScreen({ navigation }){
   -------------------------------------------------------------------------*/
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [usernameError, setUsernameError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
+  const [loginError, setLoginError] = useState("");
   const [validation, setValidation] = useState(false);
 
   /*-------------------------------------------------------------------------
@@ -56,37 +55,14 @@ export default function SignInScreen({ navigation }){
         if(e === true || validation) {
           navigation.navigate("HomeScreen");
         }
+        else if(e === false) {
+          setLoginError("Invalid Credentials");
+        }
       });
       setUsername("");
       setPassword("");
     }
     loginHandler();
-    
-    // if (username != "admin") {
-    //   console.log("Invalid Username"); 
-    //   setUsernameError("Invalid Username");
-    //   if (passwordError.length > 0) {
-    //     setPasswordError("");
-    //   }
-    //   setUsername("");
-    //   setPassword("");
-    // }
-    // else if (password != "password") {
-    //   console.log("Invalid Password"); 
-    //   if (usernameError.length > 0) {
-    //     setUsernameError("");
-    //   }
-    //   setPasswordError("Invalid Password");
-    //   setPassword("");
-    // }
-    // else {
-    //   //go to home page
-    //   console.log("Success!");
-    //   navigation.navigate("HomeScreen");
-    //   setUsername("");
-    //   setPassword("");
-
-    // }
   }
 
   const forgotPassword = () => {
@@ -100,10 +76,15 @@ export default function SignInScreen({ navigation }){
     <View style={globalStyles.pageContainer}>
       <Text style={globalStyles.pageTitle}>Sign In</Text>
       <View style={styles.mySoftRectangularContainer}>
-          <AppInputField placeholder="Username" onChangeText={(textInputBox) => setUsername(textInputBox)} value={username} onKeyPress={handleKeyDown} />
-          {usernameError.length > 0 && <Text style={globalStyles.errorText}>{usernameError}</Text>}
-          <AppInputField placeholder="Password" onChangeText={(textInputBox) => setPassword(textInputBox)} value={password} onKeyPress={handleKeyDown} secureTextEntry={true} />
-          {passwordError.length > 0 && <Text style={globalStyles.errorText}>{passwordError}</Text>}
+          {loginError.length > 0 && <Text style={globalStyles.errorText}>{loginError}</Text>}
+          <AppInputField placeholder="Username" onChangeText={(textInputBox) => {
+            setUsername(textInputBox)
+            if(loginError.length > 0) {setLoginError("");}
+            }} value={username} onKeyPress={handleKeyDown} />
+          <AppInputField placeholder="Password" onChangeText={(textInputBox) => {
+            setPassword(textInputBox);
+            if(loginError.length > 0) {setLoginError("");}
+          }} value={password} onKeyPress={handleKeyDown} secureTextEntry={true} />
         <Pressable style={globalStyles.forgotPassword} onPress={() => forgotPassword()}>
           <Text style={{color: colors.primary}}>Forgot password</Text>
         </Pressable>
