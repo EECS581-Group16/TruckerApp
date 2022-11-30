@@ -19,10 +19,30 @@ export default function SignInScreen({ navigation }){
   const [password, setPassword] = useState("");
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [validation, setValidation] = useState(false);
 
   /*-------------------------------------------------------------------------
     Methods
   -------------------------------------------------------------------------*/
+  const apiURL = 'http://localhost:5000'
+  const handleLogin = async () => {
+    const response = await fetch(`${apiURL}/login`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password
+      })
+    });
+    const validation = await response.json();
+    console.log(validation.response);
+    setValidation(validation.accepted);
+    return validation.accepted;
+  }
+
   const handleKeyDown = (e) => {
     if(e.nativeEvent.key == "Enter"){
       validateSignIn();
@@ -31,31 +51,42 @@ export default function SignInScreen({ navigation }){
 
   //Temporary -- will eventually validate with usernames and passwords from database server.
   const validateSignIn = () => {
-    if (username != "admin") {
-      console.log("Invalid Username"); 
-      setUsernameError("Invalid Username");
-      if (passwordError.length > 0) {
-        setPasswordError("");
-      }
+    async function loginHandler() {
+      await handleLogin().then((e) => {
+        if(e === true || validation) {
+          navigation.navigate("HomeScreen");
+        }
+      });
       setUsername("");
       setPassword("");
     }
-    else if (password != "password") {
-      console.log("Invalid Password"); 
-      if (usernameError.length > 0) {
-        setUsernameError("");
-      }
-      setPasswordError("Invalid Password");
-      setPassword("");
-    }
-    else {
-      //go to home page
-      console.log("Success!");
-      navigation.navigate("HomeScreen");
-      setUsername("");
-      setPassword("");
+    loginHandler();
+    
+    // if (username != "admin") {
+    //   console.log("Invalid Username"); 
+    //   setUsernameError("Invalid Username");
+    //   if (passwordError.length > 0) {
+    //     setPasswordError("");
+    //   }
+    //   setUsername("");
+    //   setPassword("");
+    // }
+    // else if (password != "password") {
+    //   console.log("Invalid Password"); 
+    //   if (usernameError.length > 0) {
+    //     setUsernameError("");
+    //   }
+    //   setPasswordError("Invalid Password");
+    //   setPassword("");
+    // }
+    // else {
+    //   //go to home page
+    //   console.log("Success!");
+    //   navigation.navigate("HomeScreen");
+    //   setUsername("");
+    //   setPassword("");
 
-    }
+    // }
   }
 
   const forgotPassword = () => {
