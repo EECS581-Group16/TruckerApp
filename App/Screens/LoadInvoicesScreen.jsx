@@ -50,10 +50,13 @@ export default function LoadInvoicesScreen({ navigation }){
   const handleSubmitChecker = () => {
     if(date.length == 0 || driver.length == 0 || truckNum.length == 0 || description.length == 0 || orderNum.length == 0 
       || ticketNum.length == 0 || tons.length == 0 || hours.length == 0 || unitPrice.length == 0){
-        console.log("Not every blank is filled!")
+        setSubmitError("Every blank must be filled in!");
         return;
-      }
-      handleSubmit();
+    }
+    else if(submitError.length > 0) {
+      setSubmitError("");
+    }
+    handleSubmit();
   }
 
   const [date, setDate] = useState(""); //look at using {varOne: new Data()}
@@ -65,6 +68,7 @@ export default function LoadInvoicesScreen({ navigation }){
   const [tons, setTons] = useState(""); //database stores this as an int
   const [hours, setHours] = useState(""); //database stores this as an int
   const [unitPrice, setUnitPrice] = useState(""); //database stores this as an int
+  const [submitError, setSubmitError] = useState("");
 
   /*-------------------------------------------------------------------------
     Home Screen
@@ -75,6 +79,7 @@ export default function LoadInvoicesScreen({ navigation }){
           <Text style={styles.pageTitle}>
             Load Ticket
           </Text>
+          {submitError.length > 0 && <Text style={globalStyles.errorText}>{submitError}</Text>}
           <View style={styles.softContainer}>
             <AppInputField placeholder="Date" onChangeText={(textInputBox) => setDate(textInputBox)} value={date}/>
           </View>
